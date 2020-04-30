@@ -1,26 +1,9 @@
-var canvas = document.getElementById("canvas");
-        var processing = new Processing(canvas, function(processing) {
-            processing.size(600, 600);
-            processing.background(0xFFF);
-    
-            var mouseIsPressed = false;
-            processing.mousePressed = function () { mouseIsPressed = true; };
-            processing.mouseReleased = function () { mouseIsPressed = false; };
-    
-            var keyIsPressed = false;
-            processing.keyPressed = function () { keyIsPressed = true; };
-            processing.keyReleased = function () { keyIsPressed = false; };
-    
-            function getImage(s) {
-                var url = "https://www.kasandbox.org/programming-images/" + s + ".png";
-                processing.externals.sketch.imageCache.add(url);
-                return processing.loadImage(url);
-            }
-    
-            with (processing) {
-                
-                
-                //Sub page:
+var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        size(600, 600); 
+        frameRate(30);
+        
+        //Sub page:
 //https://www.khanacademy.org/computer-programming/endeavours-sub-page/6256973864271872
 
 //Use the level creator to make levels, then fill in the name and creator slots in the userlevel and post in the T&T
@@ -2893,8 +2876,4 @@ userLevel('think outside the box','endeavour',[
 'gggggggggggggggggggg',
 ]);
 
-                
-                
-            }
-            if (typeof draw !== 'undefined') processing.draw = draw;
-        });
+    }};
